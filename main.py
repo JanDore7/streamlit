@@ -3,14 +3,14 @@ import pandas as pd
 
 
 
-sl.markdown("""
-<style>
-.st-emotion-cache-1avcm0n.ezrtsby2
-{
-    display: none !important;
-}
-</style>
-""", unsafe_allow_html=True)
+# sl.markdown("""
+# <style>
+# .st-emotion-cache-1avcm0n.ezrtsby2
+# {
+#     display: none !important;
+# }
+# </style>
+# """, unsafe_allow_html=True)
 
 
 
@@ -47,4 +47,11 @@ sl.audio('sample-6s.mp3')
 
 sl.video('MOT - Kogda muzhchina vlyublen - 1080HD - [ VKlipe.org ].mp4')
 
+state = sl.checkbox(label='Чекбокс', value=True)
+if state:
+    sl.write('Привет')
 
+def foo():
+    print(f'Поменялись {sl.session_state.чекер}')
+
+state = sl.checkbox(label='Бокс', on_change=foo, key='чекер')
