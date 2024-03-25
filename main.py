@@ -58,3 +58,8 @@ state = sl.checkbox(label='Бокс', on_change=foo, key='чекер')
 
 radio_btn = sl.radio('В какой стране ты живешь?', options=('US', 'RU', 'UA'))
 print(radio_btn)
+
+def btn():
+    print('КЛИК-КЛАК')
+
+btn = sl.button('Нажми меня', help='кликни', on_click=btn)
