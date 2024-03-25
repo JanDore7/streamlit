@@ -93,3 +93,16 @@ print(val)
 
 
 vak1 = sl.select_slider('Новый ползунок', options=('1', '3', '5'))
+
+val = sl.text_input('Введите название курса', value=' Мой курс: ', max_chars=15)
+sl.write(val)
+
+
+val = sl.text_area('Опиши ситуацию.', height=100 )
+print(val)
+
+
+val = sl.date_input('Веди дату')
+print(val)
+
+val = sl.time_input('Выбери время')
