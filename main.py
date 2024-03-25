@@ -1,4 +1,5 @@
 import streamlit as sl
+import pandas as pd
 
 
 sl.title('Привет я приложение')
@@ -17,3 +18,13 @@ def funck():
     return 0;
 '''
 sl.code(code, language='python')
+sl.write('## H2')
+sl.write(json)
+
+sl.metric(label='Скорость ветра', value='120ms⁻¹', delta='1.4ms⁻¹')
+sl.metric(label='Скорость ветра', value='120ms⁻¹', delta='-1.4ms⁻¹')
+
+table = pd.DataFrame({'column 1': [1,2,3,4,5,6,7], 'column 2': [11,12,13,14,15,16,17]})
+sl.table(table)
+
+sl.dataframe(table)
