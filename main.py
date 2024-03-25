@@ -63,3 +63,8 @@ def btn():
     print('КЛИК-КЛАК')
 
 btn = sl.button('Нажми меня', help='кликни', on_click=btn)
+
+
+
+select = sl.selectbox('Выбери автомобиль', help='Кликни на нужный', options=('Audi', 'BMW', 'Changan', 'VAZ'))
+print(select)
