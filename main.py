@@ -86,3 +86,10 @@ sl.markdown('---')
 video = sl.file_uploader('Загрузи изображение', type='mp4')
 if video is not None:
     sl.video(video)
+
+
+val = sl.slider('Это слайдер', min_value=50, max_value=250, value=110 )
+print(val)
+
+
+vak1 = sl.select_slider('Новый ползунок', options=('1', '3', '5'))
