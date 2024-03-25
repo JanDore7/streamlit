@@ -2,6 +2,18 @@ import streamlit as sl
 import pandas as pd
 
 
+
+sl.markdown("""
+<style>
+.st-emotion-cache-1avcm0n.ezrtsby2
+{
+    display: none !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
+
 sl.title('Привет я приложение')
 sl.subheader('Я подзаголовок')
 sl.header('Заголовок')
@@ -34,3 +46,5 @@ sl.image('2024-01-10_13-29.png',caption='Снимок' , width=150, clamp=False,
 sl.audio('sample-6s.mp3')
 
 sl.video('MOT - Kogda muzhchina vlyublen - 1080HD - [ VKlipe.org ].mp4')
+
+
