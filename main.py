@@ -68,3 +68,8 @@ btn = sl.button('Нажми меня', help='кликни', on_click=btn)
 
 select = sl.selectbox('Выбери автомобиль', help='Кликни на нужный', options=('Audi', 'BMW', 'Changan', 'VAZ'))
 print(select)
+
+
+m_select = sl.multiselect('Твой любимый бренд?', options=('Microsoft', 'Apple', 'Accer'))
+sl.write(m_select)
+print(m_select)

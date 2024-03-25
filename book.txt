@@ -109,3 +109,59 @@ selected_option = st.selectbox(
 st.write(f"You selected: {selected_option}")
 
 В этом примере каждая опция будет отображаться в верхнем регистре с добавлением "- Custom format" благодаря функции format_func.
+
+
+
+
+
+
+
+sl.multiselect в Streamlit — это виджет, позволяющий пользователям выбирать несколько опций из выпадающего списка. Это особенно полезно, когда требуется предоставить возможность выбора из множества вариантов без ограничения одним выбором.
+Основное использование:
+
+python
+
+import streamlit as st
+
+# Определение списка опций
+options = ["Option 1", "Option 2", "Option 3", "Option 4"]
+
+# Создание multiselect box
+selected_options = st.multiselect("Choose your options", options)
+
+# Отображение выбранных вариантов
+st.write(f"You selected: {selected_options}")
+
+Аргументы st.multiselect:
+
+    label (str): Текстовая метка, отображаемая над multiselect box.
+    options (list, tuple, numpy.ndarray, pandas.Series, и другие): Последовательность опций, из которых пользователь может выбирать. Элементы в этой последовательности будут преобразованы в строки.
+    default (list, tuple): Список индексов или значений, которые будут выбраны по умолчанию. Если опции переданы в виде значений, то они должны точно соответствовать элементам в options.
+    format_func (Callable): Функция форматирования для отображения элементов списка. Это позволяет настроить, как будут представлены опции в выпадающем списке.
+    key (str): Уникальный ключ для виджета, который можно использовать для отслеживания его состояния в сессии.
+    help (str): Текст справки, отображаемый при наведении курсора на информационный значок рядом с виджетом.
+    on_change (Callable): Функция, вызываемая при изменении выбора.
+    args (List[Any]): Аргументы, передаваемые в on_change.
+    kwargs (Dict[Any, Any]): Именованные аргументы, передаваемые в on_change.
+    disabled (bool): Если True, выбор будет недоступен для взаимодействия с пользователем.
+
+Пример с выбором по умолчанию и format_func:
+
+python
+
+import streamlit as st
+
+def format_func(option):
+    return f"{option} - Customized"
+
+options = ["Option 1", "Option 2", "Option 3", "Option 4"]
+selected_options = st.multiselect(
+    "Choose your options",
+    options,
+    default=["Option 2", "Option 3"],
+    format_func=format_func
+)
+
+st.write(f"You selected: {', '.join(selected_options)}")
+
+В этом примере Option 2 и Option 3 выбраны по умолчанию, и каждая опция отображается с добавлением "- Customized" благодаря функции format_func
