@@ -120,9 +120,10 @@ else:
     sec = converter(str(val))
     bar = sl.progress(0)
     per = sec/100
+    progress_status = sl.empty()
     for i in range(100):
         bar.progress(i+1)
+        progress_status.write(str(i) + '%')
         ts.sleep(per)
-    
+    progress_status.write('Выполнено')
         
-    
