@@ -52,6 +52,9 @@ if state:
     sl.write('Привет')
 
 def foo():
-    print(f'Поменялись {sl.session_state.чекер}')
+    print(f'Состояние {sl.session_state.чекер}')
 
 state = sl.checkbox(label='Бокс', on_change=foo, key='чекер')
+
+radio_btn = sl.radio('В какой стране ты живешь?', options=('US', 'RU', 'UA'))
+print(radio_btn)
