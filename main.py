@@ -28,3 +28,9 @@ table = pd.DataFrame({'column 1': [1,2,3,4,5,6,7], 'column 2': [11,12,13,14,15,1
 sl.table(table)
 
 sl.dataframe(table)
+
+sl.image('2024-01-10_13-29.png',caption='Снимок' , width=150, clamp=False, channels='RGB')
+
+sl.audio('sample-6s.mp3')
+
+sl.video('MOT - Kogda muzhchina vlyublen - 1080HD - [ VKlipe.org ].mp4')
