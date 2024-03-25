@@ -1,7 +1,7 @@
 import streamlit as sl
 import pandas as pd
-
-
+import time as ts
+from datetime import time
 
 # sl.markdown("""
 # <style>
@@ -105,4 +105,24 @@ print(val)
 val = sl.date_input('Веди дату')
 print(val)
 
-val = sl.time_input('Выбери время')
+
+
+
+def converter(value):
+    m,s,mm = value.split(':')
+    t_s = int(m)*60+int(s)+int(mm)/1000
+    return t_s
+
+val = sl.time_input('Выбери время', value=time(0,0,0))
+if str(val) == '00:00:00':
+    sl.write('Установи таймер')
+else:
+    sec = converter(str(val))
+    bar = sl.progress(0)
+    per = sec/100
+    for i in range(100):
+        bar.progress(i+1)
+        ts.sleep(per)
+    
+        
+    
