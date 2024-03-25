@@ -14,7 +14,7 @@ from datetime import time
 
 
 
-sl.title('загрузка файлов')
+sl.markdown('<h1>Регистрация</h1>', unsafe_allow_html=True)
 # sl.subheader('Я подзаголовок')
 # sl.header('Заголовок')
 # sl.text('Обычный текст')
@@ -76,54 +76,58 @@ sl.title('загрузка файлов')
 
 
 sl.markdown('---')
-images = sl.file_uploader('Загрузи изображение', type=['jpeg','png'], accept_multiple_files=True)
-if images is not None:
-    for image in images:
-        sl.image(image)
+# images = sl.file_uploader('Загрузи изображение', type=['jpeg','png'], accept_multiple_files=True)
+# if images is not None:
+#     for image in images:
+#         sl.image(image)
 
 
-sl.markdown('---')
-video = sl.file_uploader('Загрузи изображение', type='mp4')
-if video is not None:
-    sl.video(video)
+# sl.markdown('---')
+# video = sl.file_uploader('Загрузи изображение', type='mp4')
+# if video is not None:
+#     sl.video(video)
 
 
-val = sl.slider('Это слайдер', min_value=50, max_value=250, value=110 )
-print(val)
+# val = sl.slider('Это слайдер', min_value=50, max_value=250, value=110 )
+# print(val)
 
 
-vak1 = sl.select_slider('Новый ползунок', options=('1', '3', '5'))
+# vak1 = sl.select_slider('Новый ползунок', options=('1', '3', '5'))
 
-val = sl.text_input('Введите название курса', value=' Мой курс: ', max_chars=15)
-sl.write(val)
-
-
-val = sl.text_area('Опиши ситуацию.', height=100 )
-print(val)
+# val = sl.text_input('Введите название курса', value=' Мой курс: ', max_chars=15)
+# sl.write(val)
 
 
-val = sl.date_input('Веди дату')
-print(val)
+# val = sl.text_area('Опиши ситуацию.', height=100 )
+# print(val)
+
+
+# val = sl.date_input('Веди дату')
+# print(val)
 
 
 
 
-def converter(value):
-    m,s,mm = value.split(':')
-    t_s = int(m)*60+int(s)+int(mm)/1000
-    return t_s
+# def converter(value):
+#     m,s,mm = value.split(':')
+#     t_s = int(m)*60+int(s)+int(mm)/1000
+#     return t_s
 
-val = sl.time_input('Выбери время', value=time(0,0,0))
-if str(val) == '00:00:00':
-    sl.write('Установи таймер')
-else:
-    sec = converter(str(val))
-    bar = sl.progress(0)
-    per = sec/100
-    progress_status = sl.empty()
-    for i in range(100):
-        bar.progress(i+1)
-        progress_status.write(str(i) + '%')
-        ts.sleep(per)
-    progress_status.write('Выполнено')
+# val = sl.time_input('Выбери время', value=time(0,0,0))
+# if str(val) == '00:00:00':
+#     sl.write('Установи таймер')
+# else:
+#     sec = converter(str(val))
+#     bar = sl.progress(0)
+#     per = sec/100
+#     progress_status = sl.empty()
+#     for i in range(100):
+#         bar.progress(i+1)
+#         progress_status.write(str(i) + '%')
+#         ts.sleep(per)
+#     progress_status.write('Выполнено')
         
+
+form = sl.form('Форма №1')
+form.text_input('Имя')
+form.form_submit_button('Отправить')
