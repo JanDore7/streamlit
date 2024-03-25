@@ -2,6 +2,10 @@ import streamlit as sl
 import pandas as pd
 import time as ts
 from datetime import time
+from matplotlib import pyplot as plt
+import numpy as np
+
+
 
 # sl.markdown("""
 # <style>
@@ -14,7 +18,7 @@ from datetime import time
 
 
 
-sl.markdown('<h1 style="text-align: center;">Регистрация</h1>', unsafe_allow_html=True)
+# sl.markdown('<h1 style="text-align: center;">Регистрация</h1>', unsafe_allow_html=True)
 # sl.subheader('Я подзаголовок')
 # sl.header('Заголовок')
 # sl.text('Обычный текст')
@@ -29,7 +33,19 @@ sl.markdown('<h1 style="text-align: center;">Регистрация</h1>', unsaf
 # def funck():
 #     return 0;
 # '''
-# sl.code(code, language='python')
+# sl.code(code, language='python')table = pd.DataFrame({'Column1': [1,2,3,4,5,6,7], 'Column2': [11,12,13,14,15,16,17]})
+# sl.markdown('''
+# <style>
+# .css-dibild.edgvbvh6
+# {
+#     visibility: hidden;            
+# }
+# .css-1v8iw7l.eknhn3m4
+# {
+#     visibility: hidden;
+# }
+# </style>
+# ''', unsafe_allow_html=True)
 # sl.write('## H2')
 # sl.write(json)
 
@@ -75,7 +91,7 @@ sl.markdown('<h1 style="text-align: center;">Регистрация</h1>', unsaf
 # print(m_select)
 
 
-sl.markdown('---')
+# sl.markdown('---')
 # images = sl.file_uploader('Загрузи изображение', type=['jpeg','png'], accept_multiple_files=True)
 # if images is not None:
 #     for image in images:
@@ -132,28 +148,51 @@ sl.markdown('---')
 # form.text_input('Имя')
 # form.form_submit_button('Отправить')
 
-with sl.form('Форма №2', clear_on_submit=True):
-    col1, col2 = sl.columns(2)
-    login = col1.text_input('Логин')
-    passwd = col2.text_input('Пароль')
-    email = sl.text_input('Электронная почта')
-    passwd_2 = sl.text_input('Подтверди пароль')
+# with sl.form('Форма №2', clear_on_submit=True):
+#     col1, col2 = sl.columns(2)
+#     login = col1.text_input('Логин')
+#     passwd = col2.text_input('Пароль')
+#     email = sl.text_input('Электронная почта')
+#     passwd_2 = sl.text_input('Подтверди пароль')
     
-    day, month, year = sl.columns(3)
-    day.text_input('День')
-    month.text_input('Месяц')
-    year.text_input('Год')
+#     day, month, year = sl.columns(3)
+#     day.text_input('День')
+#     month.text_input('Месяц')
+#     year.text_input('Год')
 
-    s_state = sl.form_submit_button('Отправить')
-    if s_state:
+#     s_state = sl.form_submit_button('Отправить')
+#     if s_state:
         
-        if login == '' and passwd == '' :
-            sl.warning('Ты не заполнил объязательные поля', icon="⚠️")
-        else:
-            sl.success('Успешно')
+#         if login == '' and passwd == '' :
+#             sl.warning('Ты не заполнил объязательные поля', icon="⚠️")
+#         else:
+#             sl.success('Успешно')
             
             
-            ts.sleep(3)
+#             ts.sleep(3)
             
 
-print(f'Твой данные {login=} {passwd=}')
+# print(f'Твой данные {login=} {passwd=}')
+
+
+
+
+x = np.linspace(0, 10, 100)
+bar_x = np.array([1,2,3,4,5])
+
+sl.sidebar.write('Боковая панель')
+opt = sl.sidebar.radio('Выбери график', options=('Линейный', 'Не линейный'))
+if opt == 'Линейный':
+    sl.markdown('<h5 style=text-align: justify;>Линейный график</h5>', unsafe_allow_html=True)
+    fig = plt.figure()
+    plt.plot(x, np.sin(x))
+    sl.write(fig)
+
+elif opt == 'Не линейный':
+    sl.markdown('<h5 style=text-align: justify;>Не линейный график</h5>', unsafe_allow_html=True)
+    fig = plt.figure()
+    plt.bar(x,x*10)
+    sl.write(fig)
+
+
+
