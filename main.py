@@ -14,7 +14,7 @@ from datetime import time
 
 
 
-sl.markdown('<h1>Регистрация</h1>', unsafe_allow_html=True)
+sl.markdown('<h1 style="text-align: center;">Регистрация</h1>', unsafe_allow_html=True)
 # sl.subheader('Я подзаголовок')
 # sl.header('Заголовок')
 # sl.text('Обычный текст')
@@ -132,10 +132,28 @@ sl.markdown('---')
 # form.text_input('Имя')
 # form.form_submit_button('Отправить')
 
-with sl.form('Форма №2'):
+with sl.form('Форма №2', clear_on_submit=True):
     col1, col2 = sl.columns(2)
-    col1.text_input('Логин')
-    col2.text_input('Пароль')
-    sl.text_input('Электронная почта')
-    sl.text_input('Подтверди пароль')
-    sl.form_submit_button('Отправить')
+    login = col1.text_input('Логин')
+    passwd = col2.text_input('Пароль')
+    email = sl.text_input('Электронная почта')
+    passwd_2 = sl.text_input('Подтверди пароль')
+    
+    day, month, year = sl.columns(3)
+    day.text_input('День')
+    month.text_input('Месяц')
+    year.text_input('Год')
+
+    s_state = sl.form_submit_button('Отправить')
+    if s_state:
+        
+        if login == '' and passwd == '' :
+            sl.warning('Ты не заполнил объязательные поля', icon="⚠️")
+        else:
+            sl.success('Успешно')
+            
+            
+            ts.sleep(3)
+            
+
+print(f'Твой данные {login=} {passwd=}')
