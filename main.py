@@ -128,6 +128,14 @@ sl.markdown('---')
 #     progress_status.write('Выполнено')
         
 
-form = sl.form('Форма №1')
-form.text_input('Имя')
-form.form_submit_button('Отправить')
+# form = sl.form('Форма №1')
+# form.text_input('Имя')
+# form.form_submit_button('Отправить')
+
+with sl.form('Форма №2'):
+    col1, col2 = sl.columns(2)
+    col1.text_input('Логин')
+    col2.text_input('Пароль')
+    sl.text_input('Электронная почта')
+    sl.text_input('Подтверди пароль')
+    sl.form_submit_button('Отправить')
